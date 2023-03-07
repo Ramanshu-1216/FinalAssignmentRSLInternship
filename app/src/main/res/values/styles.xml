@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="backgroundColor">@color/white</item>
+    </style>
+    <style name="Title">
+        <item name="color">@color/light</item>
+        <item name="android:textStyle">bold</item>
+        <item name="textAllCaps">true</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+    <style name="Button" parent="Widget.AppCompat.Button">
+        <item name="textAllCaps">false</item>
+        <item name="backgroundColor">#FF8686</item>
+        <item name="android:background">@drawable/rounded_corners</item>
+    </style>
+    <style name="Button.red">
+        <item name="backgroundTint">#FF8686</item>
+    </style>
+    <style name="Button.green">
+        <item name="backgroundTint">#58FD68</item>
+    </style>
+    <style name="Button.yellow">
+        <item name="backgroundTint">#F6D768</item>
+    </style>
+    <style name="SubHeading">
+        <item name="android:textSize">15dp</item>
+        <item name="color">@color/primary</item>
+    </style>
+</resources>
+

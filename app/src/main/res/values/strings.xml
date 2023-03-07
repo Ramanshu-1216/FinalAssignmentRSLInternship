@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AndroidFinalAssignment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="the_quiz_app">The Quiz App</string>
+    <string name="english_quiz">English Quiz</string>
+    <string name="total_questions_10">Total Questions: 10</string>
+    <string name="total_time_10_minutes">Total Time: 10 minutes</string>
+    <string name="topic_english_and_grammar">Topic: English and Grammar</string>
+    <string name="outcomes">Outcomes: Will help to check your basic english grammar knowledge and help to improve and speak good english. It is a beginner friendly test.</string>
+    <string name="answered">Answered</string>
+    <string name="unanswered">Unanswered</string>
+</resources>
