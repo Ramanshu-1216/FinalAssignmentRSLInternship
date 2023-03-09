@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_margin="20dp"
-    tools:context=".QuestionDetailScreenFragment">
+    tools:context=".QuestionDetailScreenFragment"
+    android:background="@color/light">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,60 +21,85 @@
             >
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/questionNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingVertical="10dp"
-                android:text="Question Number: 1"
+                android:text="@string/question_number"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:paddingRight="5dp"/>
 
-            <ImageButton
+            <TextView
+                android:id="@+id/questionNumberTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/bookmark_hollow"
+                android:paddingVertical="10dp"
+                android:text="@string/_1"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/questionNumber"
+                app:layout_constraintTop_toTopOf="parent" />
+                
+
+            <ImageButton
+                android:id="@+id/bookmarkButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bookmark_level_list"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/questionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="waededwarqweqeqeqweqeeqeeeeqwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwweeqw"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                android:layout_margin="10dp"
+                android:text="@string/question"
+                app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionNumber" />
 
             <RadioGroup
                 android:id="@+id/radioGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/textView4">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionTextView"
+                android:layout_margin="10dp">
 
                 <RadioButton
+                    android:id="@+id/option_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Option 1" />
+                    android:text="@string/option_1" />
 
                 <RadioButton
+                    android:id="@+id/option_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Option 2" />
+                    android:text="@string/option_2" />
 
                 <RadioButton
+                    android:id="@+id/option_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Option 3" />
+                    android:text="@string/option_3" />
 
                 <RadioButton
+                    android:id="@+id/option_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Option 4" />
+                    android:text="@string/option_4" />
             </RadioGroup>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/previousButton"
         style="@style/Button.yellow"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
@@ -82,7 +108,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/nextButton"
         style="@style/Button.yellow"
         android:layout_width="100dp"
         android:layout_height="wrap_content"

@@ -1,8 +1,14 @@
 package com.example.androidfinalassignment;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import androidx.annotation.NonNull;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class QuestionModel {
+public class QuestionModel implements Parcelable {
     private int id;
     private String question;
     private ArrayList<String> options;
@@ -10,6 +16,7 @@ public class QuestionModel {
     private boolean status;
     private String selectedOption;
     private boolean isBookmarked;
+
     public QuestionModel(int id, String question, ArrayList<String> options, int correctOption, boolean status, String selectedOption, boolean isBookmarked){
         this.id = id;
         this.question = question;
@@ -19,6 +26,29 @@ public class QuestionModel {
         this.selectedOption = selectedOption;
         this.isBookmarked = isBookmarked;
     }
+
+    protected QuestionModel(Parcel in) {
+        id = in.readInt();
+        question = in.readString();
+        options = in.createStringArrayList();
+        correctOption = in.readInt();
+        status = in.readByte() != 0;
+        selectedOption = in.readString();
+        isBookmarked = in.readByte() != 0;
+    }
+
+    public static final Creator<QuestionModel> CREATOR = new Creator<QuestionModel>() {
+        @Override
+        public QuestionModel createFromParcel(Parcel in) {
+            return new QuestionModel(in);
+        }
+
+        @Override
+        public QuestionModel[] newArray(int size) {
+            return new QuestionModel[size];
+        }
+    };
+
     public String getQuestion() {
         return question;
     }
@@ -56,5 +86,21 @@ public class QuestionModel {
 
     public void setBookmarked(boolean bookmarked) {
         isBookmarked = bookmarked;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(question);
+        parcel.writeStringList(options);
+        parcel.writeInt(correctOption);
+        parcel.writeByte((byte) (status ? 1 : 0));
+        parcel.writeString(selectedOption);
+        parcel.writeByte((byte) (isBookmarked ? 1 : 0));
     }
 }

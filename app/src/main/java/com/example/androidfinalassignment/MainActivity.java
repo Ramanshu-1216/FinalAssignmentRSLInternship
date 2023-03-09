@@ -1,12 +1,13 @@
 package com.example.androidfinalassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.os.Handler;
-
-import java.util.Timer;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
     private SplashScreenFragment splashScreenFragment;
@@ -32,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.commit();
                 }
             }, 1500);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        FragmentManager manager = QuestionListFragment.getInstance().getParentFragmentManager();
+        if(manager.getBackStackEntryCount() > 0){
+            manager.popBackStackImmediate();
+        }
+        else{
+            super.onBackPressed();
         }
     }
 }

@@ -33,9 +33,26 @@ public class QuestionListFragment extends Fragment implements QuestionsListAdapt
     private ArrayList<QuestionModel> questions = new ArrayList<>();
     private QuestionListViewModel questionListViewModel;
     private QuestionsListAdapter adapter;
+    private static QuestionListFragment fragment;
 
+    public QuestionListFragment(){
+
+    }
     public static QuestionListFragment newInstance() {
-        return new QuestionListFragment();
+        fragment =  new QuestionListFragment();
+        return fragment;
+    }
+
+    public static QuestionListFragment getInstance() {
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if(getArguments() != null){
+
+        }
     }
 
     @Override
@@ -73,13 +90,12 @@ public class QuestionListFragment extends Fragment implements QuestionsListAdapt
         });
     }
 
-
     @Override
     public void onItemClickListener(int position) {
-        QuestionDetailScreenFragment questionDetailScreenFragment = new QuestionDetailScreenFragment();
+        QuestionDetailScreenFragment questionDetailScreenFragment = QuestionDetailScreenFragment.newInstance(questions, position);
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-        fragmentTransaction.add(getParentFragment().getView().findViewById(R.id.container).getId(), questionDetailScreenFragment);
-//        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.replace(getParentFragment().getView().findViewById(R.id.container).getId(), questionDetailScreenFragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
 }

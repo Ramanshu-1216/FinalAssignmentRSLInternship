@@ -19,35 +19,17 @@ import android.widget.FrameLayout;
  * create an instance of this fragment.
  */
 public class QuestionsListScreenFragment extends Fragment {
-    public static final String TAG = "TAGGG";
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public QuestionsListScreenFragment() {
         // Required empty public constructor
     }
-
-
-    // TODO: Rename and change types and number of parameters
     public static QuestionsListScreenFragment newInstance() {
         QuestionsListScreenFragment fragment = new QuestionsListScreenFragment();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -62,9 +44,6 @@ public class QuestionsListScreenFragment extends Fragment {
         QuestionListFragment questionListFragment = QuestionListFragment.newInstance();
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.container, questionListFragment);
-        fragmentTransaction.addToBackStack("null");
         fragmentTransaction.commit();
-        fragmentTransaction = getChildFragmentManager().beginTransaction();
-        Log.d(TAG, "onViewCreated: " + fragmentTransaction.get);
     }
 }
